@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Check, ArrowRight, Activity, DollarSign, ExternalLink, Info } from 'lucide-react';
+import { Check, ArrowRight, Activity, DollarSign, ExternalLink, Info, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Reveal from '../components/Reveal';
 import Modal from '../components/Modal';
@@ -27,101 +27,90 @@ const Products: React.FC = () => {
   };
 
   return (
-    <div className="pt-24 pb-16 min-h-screen bg-white">
+    <div className="pt-40 pb-32 min-h-screen bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <Reveal>
-          <div className="text-center max-w-3xl mx-auto mb-24">
-            <h1 className="text-5xl md:text-6xl font-extrabold text-slate-900 mb-6 tracking-tight">
+          <div className="text-center max-w-4xl mx-auto mb-40">
+            <span className="text-primary-600 font-black tracking-widest uppercase text-xs mb-5 block">Integrated Solutions</span>
+            <h1 className="text-6xl md:text-8xl font-black text-slate-900 mb-10 tracking-tighter leading-tight">
               {SERVICES.title} <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-primary-400">{SERVICES.titleHighlight}</span>
             </h1>
-            <p className="text-xl text-slate-600">
+            <p className="text-xl md:text-2xl text-slate-500 font-light leading-relaxed max-w-2xl mx-auto">
               {SERVICES.subtitle}
             </p>
           </div>
         </Reveal>
 
-        <div className="space-y-40">
+        <div className="space-y-48 md:space-y-64">
           {PRODUCTS_LIST.map((product, index) => (
-            <div key={product.id} className={`flex flex-col lg:flex-row gap-20 items-start ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+            <div key={product.id} className={`flex flex-col lg:flex-row gap-16 lg:gap-32 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
               
-              {/* Image Side - Sticky */}
-              <div className="w-full lg:w-1/2 sticky top-32">
+              {/* Product Card Side */}
+              <div className="w-full lg:w-1/2 group">
                 <Reveal direction={index % 2 === 0 ? 'right' : 'left'}>
-                  <div className="relative group perspective-1000">
-                     {/* Background Blob - Stronger Brand Color */}
-                     <div className="absolute inset-0 bg-gradient-to-tr from-primary-600 to-primary-300 rounded-[2rem] transform rotate-3 scale-105 opacity-20 group-hover:opacity-30 group-hover:rotate-6 transition-all duration-700 blur-xl"></div>
-                     
-                     <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border border-white/20 bg-white transform transition-transform duration-700 group-hover:scale-[1.01]">
-                        <div className="absolute top-0 left-0 w-full h-full bg-slate-900/10 z-10 group-hover:bg-transparent transition-colors duration-500"></div>
+                  <div className="relative transform transition-all duration-700 group-hover:scale-[1.02]">
+                     <div className="absolute inset-0 bg-primary-600 rounded-[4rem] opacity-5 blur-[80px] translate-y-16 scale-90 group-hover:opacity-15 transition-all"></div>
+                     <div className="relative rounded-[3rem] md:rounded-[4rem] overflow-hidden shadow-[0_32px_100px_-20px_rgba(0,0,0,0.12)] border border-slate-100 bg-slate-50 h-[450px] md:h-[650px]">
                         <img 
                           src={product.image} 
-                          alt={product.title} 
-                          className="w-full h-[500px] object-cover transition-transform duration-700 group-hover:scale-110"
+                          alt={`${product.title} Interface Preview`} 
+                          className="w-full h-full object-cover transition-all duration-[2000ms] group-hover:scale-110"
+                          loading="lazy"
                         />
-                        
-                        {/* Overlay Card */}
-                        <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md p-6 rounded-xl shadow-lg z-20 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500 border-l-4 border-primary-500">
-                           <div className="flex items-center justify-between">
-                              <div className="flex items-center gap-2">
-                                 <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                                 <span className="text-xs font-bold text-slate-600 uppercase">{SERVICES.liveSystem}</span>
-                              </div>
-                              <product.icon className="w-5 h-5 text-primary-600" />
+                        {/* Status Float Bar */}
+                        <div className="absolute bottom-6 left-6 right-6 md:bottom-10 md:left-10 md:right-10 bg-white/90 backdrop-blur-xl p-6 md:p-10 rounded-[2.5rem] shadow-2xl z-20 border border-white/40 flex items-center justify-between">
+                           <div className="flex flex-col gap-1.5">
+                             <span className="text-[10px] md:text-xs font-black text-primary-600 uppercase tracking-[0.25em]">{SERVICES.liveSystem}</span>
+                             <h4 className="text-xl md:text-3xl font-black text-slate-900 tracking-tight">{product.subtitle}</h4>
                            </div>
+                           <button 
+                             onClick={() => openModal(product)}
+                             className="w-14 h-14 md:w-20 md:h-20 bg-primary-600 text-white rounded-3xl flex items-center justify-center shadow-2xl shadow-primary-500/40 hover:bg-primary-500 active:scale-95 transition-all duration-300"
+                           >
+                              <product.icon className="w-7 h-7 md:w-10 md:h-10" />
+                           </button>
                         </div>
                      </div>
                   </div>
                 </Reveal>
               </div>
 
-              {/* Content Side */}
-              <div className="w-full lg:w-1/2 pt-10">
+              {/* Info Side */}
+              <div className="w-full lg:w-1/2">
                 <Reveal>
-                   <div className="flex items-center gap-3 mb-6">
-                      <div className="w-14 h-14 bg-gradient-to-br from-primary-500 to-primary-700 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-primary-500/30 transform group-hover:scale-110 transition-transform duration-300 icon-hover-wiggle">
-                          <product.icon className="w-7 h-7" />
+                   <div className="flex items-center gap-6 mb-12 group cursor-default">
+                      <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-700 rounded-2xl flex items-center justify-center text-white shadow-xl group-hover:rotate-12 transition-transform duration-500">
+                          <product.icon className="w-8 h-8" />
                       </div>
-                      <div>
-                        <h2 className="text-4xl font-bold text-slate-900">{product.title}</h2>
-                        <span className="text-sm font-bold text-primary-600 uppercase tracking-widest">{product.subtitle}</span>
-                      </div>
+                      <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 group-hover:text-primary-600 transition-colors tracking-tighter">{product.title}</h2>
                   </div>
                   
-                  <p className="text-slate-600 text-lg leading-relaxed mb-10 border-l-4 border-primary-100 pl-6">
+                  <p className="text-slate-500 text-xl md:text-2xl leading-relaxed mb-16 border-l-4 border-primary-500 pl-10 py-3 font-light italic">
                     {product.description}
                   </p>
 
-                  {/* Features List Preview */}
-                  <div className="mb-8">
-                      <h3 className="font-bold text-slate-900 mb-6 flex items-center gap-2 text-lg">
-                          <Activity className="w-5 h-5 text-primary-500" /> {SERVICES.capabilities}
-                      </h3>
-                      <div className="grid grid-cols-1 gap-4">
-                          {product.features.slice(0, 3).map((feature, idx) => (
-                              <div key={idx} className="flex items-center gap-4 p-4 rounded-xl bg-slate-50 hover:bg-primary-50 hover:shadow-md transition-all border border-transparent hover:border-primary-100 group cursor-default">
-                                  <div className="w-6 h-6 rounded-full bg-white border border-primary-100 flex items-center justify-center flex-shrink-0 group-hover:bg-primary-500 group-hover:border-primary-500 transition-colors">
-                                    <Check className="w-3 h-3 text-primary-600 font-bold group-hover:text-white" />
-                                  </div>
-                                  <span className="text-slate-700 font-medium group-hover:text-slate-900">{feature}</span>
+                  <div className="grid grid-cols-1 gap-5 mb-16">
+                      {product.features.slice(0, 4).map((feature, idx) => (
+                          <div key={idx} className="flex items-center gap-6 p-6 rounded-[2rem] bg-slate-50 hover:bg-white border border-transparent hover:border-primary-100 hover:shadow-2xl transition-all duration-300 group cursor-default">
+                              <div className="w-10 h-10 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center flex-shrink-0 group-hover:bg-primary-600 group-hover:text-white transition-colors">
+                                <Check className="w-5 h-5" />
                               </div>
-                          ))}
-                      </div>
+                              <span className="text-slate-800 font-bold text-lg">{feature}</span>
+                          </div>
+                      ))}
                   </div>
 
-                  <div className="flex flex-wrap gap-4">
+                  <div className="flex flex-wrap gap-6">
                     <button 
                       onClick={() => openModal(product)}
-                      className="inline-flex items-center justify-center px-6 py-3 bg-white text-slate-700 font-bold rounded-xl border border-slate-200 hover:border-primary-200 hover:text-primary-600 hover:shadow-lg transition-all active:scale-95 group"
+                      className="flex-1 sm:flex-none inline-flex items-center justify-center px-12 py-5 bg-white text-slate-900 font-bold text-lg rounded-2xl border border-slate-200 hover:border-primary-600 hover:text-primary-600 hover:shadow-2xl transition-all active:scale-95 group"
                     >
-                      <Info className="mr-2 w-5 h-5 text-slate-400 group-hover:text-primary-500" />
-                      View Details
+                      <Info className="mr-3 w-6 h-6 text-slate-400 group-hover:text-primary-600 transition-colors" />
+                      View Full Specs
                     </button>
-                    <Link 
-                      to="/contact" 
-                      className="inline-flex items-center justify-center px-8 py-3 bg-primary-600 text-white font-bold rounded-xl hover:bg-primary-700 transition-all shadow-xl shadow-primary-900/10 hover:shadow-2xl hover:shadow-primary-900/20 hover:-translate-y-1 active:translate-y-0 group"
-                    >
-                      {SERVICES.requestIntegration} <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+                    <Link to="/contact" className="flex-1 sm:flex-none inline-flex items-center justify-center px-12 py-5 bg-primary-600 text-white font-bold text-lg rounded-2xl hover:bg-primary-700 transition-all shadow-xl hover:-translate-y-1 active:scale-95">
+                      Get Started <ArrowRight className="ml-3 w-6 h-6" />
                     </Link>
                   </div>
                 </Reveal>
@@ -130,89 +119,41 @@ const Products: React.FC = () => {
             </div>
           ))}
         </div>
-        
-        {/* Bottom CTA */}
-        <div className="mt-32">
-          <Reveal>
-             <div className="bg-gradient-to-r from-primary-600 to-primary-500 rounded-[3rem] p-12 md:p-20 text-center text-white relative overflow-hidden shadow-2xl shadow-primary-900/30 group hover:scale-[1.01] transition-transform duration-500">
-                <div className="absolute top-0 left-0 w-full h-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
-                <div className="relative z-10 max-w-3xl mx-auto">
-                   <h2 className="text-4xl md:text-5xl font-bold mb-6">{SERVICES.customTitle}</h2>
-                   <p className="text-lg text-white/90 mb-10">{SERVICES.customDesc}</p>
-                   <Link to="/contact" className="inline-block px-10 py-4 bg-white text-primary-600 font-bold rounded-full hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] transition-shadow hover:-translate-y-1 active:translate-y-0">
-                      {SERVICES.talkExpert}
-                   </Link>
-                </div>
-             </div>
-          </Reveal>
-        </div>
-
       </div>
 
-      {/* Feature Detail Modal */}
-      <Modal 
-        isOpen={!!selectedProduct} 
-        onClose={closeModal} 
-        title={selectedProduct?.title}
-      >
+      <Modal isOpen={!!selectedProduct} onClose={closeModal} title={selectedProduct?.title}>
         {selectedProduct && (
-          <div className="space-y-8">
-            <div className="flex items-start gap-4 p-4 bg-primary-50 rounded-2xl border border-primary-100">
-               <div className="p-3 bg-white rounded-xl shadow-sm text-primary-600">
-                  <selectedProduct.icon className="w-6 h-6" />
+          <div className="space-y-12">
+            <div className="p-10 bg-slate-50 rounded-[2.5rem] border border-slate-200">
+               <div className="flex items-center gap-6 mb-8">
+                  <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-primary-600 shadow-xl">
+                    <selectedProduct.icon className="w-8 h-8" />
+                  </div>
+                  <h4 className="text-3xl font-black text-slate-900 tracking-tight">{selectedProduct.subtitle}</h4>
                </div>
-               <div>
-                  <h4 className="font-bold text-slate-900 text-lg mb-1">{selectedProduct.subtitle}</h4>
-                  <p className="text-slate-600 text-sm">{selectedProduct.description}</p>
-               </div>
+               <p className="text-slate-500 text-lg leading-relaxed font-light">{selectedProduct.description}</p>
             </div>
 
             <div>
-              <h4 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
-                <Activity className="w-5 h-5 text-primary-500" /> Full Feature List
+              <h4 className="font-black text-slate-900 text-2xl mb-8 flex items-center gap-4">
+                <ShieldCheck className="w-8 h-8 text-primary-500" /> Capabilities & Standards
               </h4>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 {selectedProduct.features.map((feature, i) => (
-                  <div key={i} className="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors">
-                    <Check className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
-                    <span className="text-slate-700 text-sm">{feature}</span>
+                  <div key={i} className="flex items-start gap-5 p-6 rounded-3xl bg-white border border-slate-100 hover:border-primary-100 hover:shadow-xl transition-all group">
+                    <div className="p-2 bg-green-50 text-green-600 rounded-lg group-hover:bg-green-600 group-hover:text-white transition-colors">
+                      <Check className="w-5 h-5 flex-shrink-0" />
+                    </div>
+                    <span className="text-slate-700 font-bold text-base leading-snug">{feature}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {selectedProduct.tariffs && (
-              <div>
-                <h4 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
-                  <DollarSign className="w-5 h-5 text-primary-500" /> Pricing Structure
-                </h4>
-                <div className="overflow-hidden rounded-xl border border-slate-200 shadow-sm">
-                  <table className="min-w-full divide-y divide-slate-200">
-                    <thead className="bg-slate-50">
-                      <tr>
-                        <th className="px-6 py-3 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">Category</th>
-                        <th className="px-6 py-3 text-right text-xs font-bold text-slate-500 uppercase tracking-wider">Rate / Fee</th>
-                      </tr>
-                    </thead>
-                    <tbody className="bg-white divide-y divide-slate-100">
-                      {selectedProduct.tariffs.map((tariff, idx) => (
-                        <tr key={idx} className="hover:bg-primary-50/20">
-                          <td className="px-6 py-3 text-sm font-medium text-slate-900">{tariff.category}</td>
-                          <td className="px-6 py-3 text-sm text-right font-mono text-primary-600">{tariff.rate}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            )}
-
-            <div className="pt-4 border-t border-slate-100 flex justify-end">
-               <Link 
-                  to="/contact" 
-                  className="inline-flex items-center justify-center px-6 py-3 bg-primary-600 text-white font-bold rounded-xl hover:bg-primary-700 transition-all shadow-lg shadow-primary-900/10 hover:-translate-y-1"
-                >
-                  Request {selectedProduct.title} <ExternalLink className="ml-2 w-4 h-4" />
+            <div className="pt-10 border-t border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-8">
+               <div className="text-sm text-slate-400 font-medium max-w-xs text-center sm:text-left">Strict compliance with BI (Bank Indonesia) & ASPI regulations maintained.</div>
+               <Link to="/contact" className="w-full sm:w-auto inline-flex items-center justify-center px-12 py-5 bg-primary-600 text-white font-black text-lg rounded-2xl hover:bg-primary-700 transition-all active:scale-95 shadow-xl shadow-primary-500/20">
+                  Request Integration <ExternalLink className="ml-3 w-5 h-5" />
                 </Link>
             </div>
           </div>

@@ -38,10 +38,10 @@ const Footer: React.FC = () => {
               {FOOTER.desc}
             </p>
             <div className="flex space-x-4 pt-2">
-              <a href="#" className="text-slate-400 hover:text-primary-600 transition-colors transform hover:-translate-y-1"><Facebook className="w-5 h-5" /></a>
-              <a href="#" className="text-slate-400 hover:text-primary-600 transition-colors transform hover:-translate-y-1"><Twitter className="w-5 h-5" /></a>
-              <a href="#" className="text-slate-400 hover:text-primary-600 transition-colors transform hover:-translate-y-1"><Instagram className="w-5 h-5" /></a>
-              <a href="#" className="text-slate-400 hover:text-primary-600 transition-colors transform hover:-translate-y-1"><Linkedin className="w-5 h-5" /></a>
+              <a href="#" className="p-2 text-slate-400 hover:text-primary-600 hover:bg-primary-50 rounded-full transition-all transform hover:-translate-y-1 hover:scale-110"><Facebook className="w-5 h-5" /></a>
+              <a href="#" className="p-2 text-slate-400 hover:text-primary-600 hover:bg-primary-50 rounded-full transition-all transform hover:-translate-y-1 hover:scale-110"><Twitter className="w-5 h-5" /></a>
+              <a href="#" className="p-2 text-slate-400 hover:text-primary-600 hover:bg-primary-50 rounded-full transition-all transform hover:-translate-y-1 hover:scale-110"><Instagram className="w-5 h-5" /></a>
+              <a href="#" className="p-2 text-slate-400 hover:text-primary-600 hover:bg-primary-50 rounded-full transition-all transform hover:-translate-y-1 hover:scale-110"><Linkedin className="w-5 h-5" /></a>
             </div>
           </div>
 
