@@ -51,15 +51,21 @@ const Products: React.FC = () => {
                 <Reveal direction={index % 2 === 0 ? 'right' : 'left'}>
                   <div className="relative transform transition-all duration-700 group-hover:scale-[1.02]">
                      <div className="absolute inset-0 bg-primary-600 rounded-[4rem] opacity-5 blur-[80px] translate-y-16 scale-90 group-hover:opacity-15 transition-all"></div>
-                     <div className="relative rounded-[3rem] md:rounded-[4rem] overflow-hidden shadow-[0_32px_100px_-20px_rgba(0,0,0,0.12)] border border-slate-100 bg-slate-50 h-[450px] md:h-[650px]">
+                     <div className="relative rounded-[3rem] md:rounded-[4rem] overflow-hidden shadow-[0_32px_100px_-20px_rgba(0,0,0,0.12)] border border-slate-100 bg-slate-200 h-[450px] md:h-[650px]">
                         <img 
                           src={product.image} 
                           alt={`${product.title} Interface Preview`} 
                           className="w-full h-full object-cover transition-all duration-[2000ms] group-hover:scale-110"
                           loading="lazy"
+                          onError={(e) => {
+                             (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200';
+                          }}
                         />
+                        {/* Overlay to ensure readability even if image is light */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        
                         {/* Status Float Bar */}
-                        <div className="absolute bottom-6 left-6 right-6 md:bottom-10 md:left-10 md:right-10 bg-white/90 backdrop-blur-xl p-6 md:p-10 rounded-[2.5rem] shadow-2xl z-20 border border-white/40 flex items-center justify-between">
+                        <div className="absolute bottom-6 left-6 right-6 md:bottom-10 md:left-10 md:right-10 bg-white/95 backdrop-blur-xl p-6 md:p-10 rounded-[2.5rem] shadow-2xl z-20 border border-white/60 flex items-center justify-between">
                            <div className="flex flex-col gap-1.5">
                              <span className="text-[10px] md:text-xs font-black text-primary-600 uppercase tracking-[0.25em]">{SERVICES.liveSystem}</span>
                              <h4 className="text-xl md:text-3xl font-black text-slate-900 tracking-tight">{product.subtitle}</h4>

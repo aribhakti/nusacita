@@ -150,7 +150,7 @@ export const CONTENT = {
         subtitle: 'Advanced Payment Gateway',
         description: 'Payment Gateway or Payment Interface service intended for online partners or merchants in paying for products or services sold.',
         icon: Globe,
-        image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=1000',
+        image: 'https://images.unsplash.com/photo-1556742111-a301076d9d18?auto=format&fit=crop&q=80&w=1200',
         features: [
           'Various payment methods (Debit/Credit Card, Bank VA, e-Money, Digital Bank & QRIS)',
           'API integration for easy implementation',
@@ -165,7 +165,7 @@ export const CONTENT = {
         subtitle: 'GPN EDC System',
         description: 'System provision service on EDC terminals for merchant shopping transactions with GPN debit cards, covering infrastructure, operations, and acquiring.',
         icon: CreditCard,
-        image: 'https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?auto=format&fit=crop&q=80&w=1000',
+        image: 'https://images.unsplash.com/photo-1556740714-a8395b3bf30f?auto=format&fit=crop&q=80&w=1200',
         features: [
           'Standard & NSICCS certified EDC Terminal',
           'Host Terminal & TMS (Terminal Management System)',
@@ -187,7 +187,7 @@ export const CONTENT = {
         subtitle: 'Server-Based E-Money',
         description: 'Server-based electronic money service to digitize transactions in your community, foundation, or business.',
         icon: Wallet,
-        image: 'https://images.unsplash.com/photo-1605902711622-cfb43c4437b5?auto=format&fit=crop&q=80&w=1000',
+        image: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&q=80&w=1200',
         features: [
           'Purchase of Goods',
           'Bill Payment',
@@ -210,7 +210,7 @@ export const CONTENT = {
         subtitle: 'Integrated Billing System',
         description: 'Facilitates Partners in managing bills for their customers without having to build a complicated system.',
         icon: FileText,
-        image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=1000',
+        image: 'https://images.unsplash.com/photo-1554224155-11ee2126174d?auto=format&fit=crop&q=80&w=1200',
         features: [
           'Digital-based Invoice Creation',
           'Bill Broadcast via e-mail & WhatsApp',
@@ -365,7 +365,7 @@ export const CONTENT = {
         subtitle: 'Payment Gateway Canggih',
         description: 'Layanan Payment Gateway atau Payment Interface yang diperuntukan kepada mitra atau merchant online dalam pembayaran produk atau layanan yang dijualnya.',
         icon: Globe,
-        image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=1000',
+        image: 'https://images.unsplash.com/photo-1556742111-a301076d9d18?auto=format&fit=crop&q=80&w=1200',
         features: [
           'Berbagai pilihan metode bayar (Kartu Debit/Kredit, VA Bank, e-Money, Bank Digital & QRIS)',
           'Integrasi dengan API untuk mempermudah implementasi',
@@ -380,7 +380,7 @@ export const CONTENT = {
         subtitle: 'Sistem EDC GPN',
         description: 'Layanan penyediaan sistem pada terminal EDC untuk transaksi pembelanjaan merchant dengan kartu debit GPN, mencakup infrastruktur, operasional, dan acquiring.',
         icon: CreditCard,
-        image: 'https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?auto=format&fit=crop&q=80&w=1000',
+        image: 'https://images.unsplash.com/photo-1556740714-a8395b3bf30f?auto=format&fit=crop&q=80&w=1200',
         features: [
           'Terminal EDC standar & tersertifikasi NSICCS',
           'Host Terminal & TMS (Terminal Management System)',
@@ -402,7 +402,7 @@ export const CONTENT = {
         subtitle: 'E-Money Berbasis Server',
         description: 'Layanan uang elektronik berbasis server untuk mendigitalisasi transaksi pada komunitas, yayasan, atau bisnis Anda.',
         icon: Wallet,
-        image: 'https://images.unsplash.com/photo-1605902711622-cfb43c4437b5?auto=format&fit=crop&q=80&w=1000',
+        image: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&q=80&w=1200',
         features: [
           'Pembelian Barang (Purchase)',
           'Pembayaran Tagihan (Payment)',
@@ -425,7 +425,7 @@ export const CONTENT = {
         subtitle: 'Sistem Penagihan Terintegrasi',
         description: 'Memudahkan Mitra dalam mengelola tagihan untuk pelanggannya tanpa harus membangun sistem yang rumit.',
         icon: FileText,
-        image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=1000',
+        image: 'https://images.unsplash.com/photo-1554224155-11ee2126174d?auto=format&fit=crop&q=80&w=1200',
         features: [
           'Pembuatan Invoice berbasis digital',
           'Broadcast Tagihan via e-mail & WhatsApp',
