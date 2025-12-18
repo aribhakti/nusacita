@@ -27,13 +27,13 @@ const Products: React.FC = () => {
   };
 
   return (
-    <div className="pt-40 pb-32 min-h-screen bg-white">
+    <div className="pt-48 pb-32 min-h-screen bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <Reveal>
           <div className="text-center max-w-4xl mx-auto mb-40">
             <span className="text-primary-600 font-black tracking-widest uppercase text-xs mb-5 block">Integrated Solutions</span>
-            <h1 className="text-6xl md:text-8xl font-black text-slate-900 mb-10 tracking-tighter leading-tight">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-slate-900 mb-10 tracking-tighter leading-tight">
               {SERVICES.title} <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-primary-400">{SERVICES.titleHighlight}</span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-500 font-light leading-relaxed max-w-2xl mx-auto">
@@ -112,8 +112,10 @@ const Products: React.FC = () => {
                       onClick={() => openModal(product)}
                       className="flex-1 sm:flex-none inline-flex items-center justify-center px-12 py-5 bg-white text-slate-900 font-bold text-lg rounded-2xl border border-slate-200 hover:border-primary-600 hover:text-primary-600 hover:shadow-2xl transition-all active:scale-95 group"
                     >
-                      <Info className="mr-3 w-6 h-6 text-slate-400 group-hover:text-primary-600 transition-colors" />
-                      View Full Specs
+                      <span className="flex items-center">
+                        <Info className="mr-3 w-6 h-6 text-slate-400 group-hover:text-primary-600 transition-colors" />
+                        View Full Specs
+                      </span>
                     </button>
                     <Link to="/contact" className="flex-1 sm:flex-none inline-flex items-center justify-center px-12 py-5 bg-primary-600 text-white font-bold text-lg rounded-2xl hover:bg-primary-700 transition-all shadow-xl hover:-translate-y-1 active:scale-95">
                       Get Started <ArrowRight className="ml-3 w-6 h-6" />

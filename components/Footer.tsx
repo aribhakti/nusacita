@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Facebook, Twitter, Instagram, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Linkedin, Mail, MapPin, Phone, ArrowUpRight } from 'lucide-react';
 import { COMPANY_NAME, SHORT_NAME, ADDRESS, EMAIL, PHONE_1, CONTENT } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -10,52 +10,49 @@ const Footer: React.FC = () => {
   const { FOOTER, NAV_ITEMS, PRODUCTS_LIST } = t;
 
   return (
-    <footer className="bg-white text-slate-600 pt-16 pb-8 border-t border-slate-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+    <footer className="bg-slate-950 text-slate-400 pt-24 pb-12 relative overflow-hidden mt-20 rounded-t-[4rem]">
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary-600 via-primary-400 to-primary-700"></div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 mb-20">
           
           {/* Brand Info */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-2 text-slate-900">
-              <div className="w-8 h-8 hover:scale-110 transition-transform duration-300">
-                 {/* Nusacita SVG Logo Small */}
-                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+          <div className="lg:col-span-5 space-y-8">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center">
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full scale-75">
                   <path 
                     d="M20 25 L45 65 L80 25" 
-                    stroke="#f43f5e" 
-                    strokeWidth="16" 
+                    stroke="#e11d48" 
+                    strokeWidth="18" 
                     strokeLinecap="round" 
                     strokeLinejoin="round"
                   />
                 </svg>
               </div>
-              <div>
-                <span className="font-bold text-xl tracking-tight lowercase hover:text-primary-600 transition-colors cursor-default">{SHORT_NAME}</span>
-                <p className="text-[10px] text-slate-400 uppercase tracking-wider">Member of Artajasa</p>
-              </div>
+              <span className="font-black text-3xl text-white tracking-tighter lowercase uppercase">{SHORT_NAME}</span>
             </div>
-            <p className="text-sm leading-relaxed text-slate-500">
+            <p className="text-lg leading-relaxed max-w-sm">
               {FOOTER.desc}
             </p>
-            <div className="flex space-x-4 pt-2">
-              <a href="#" className="p-2 text-slate-400 hover:text-primary-600 hover:bg-primary-50 rounded-full transition-all transform hover:-translate-y-1 hover:scale-110"><Facebook className="w-5 h-5" /></a>
-              <a href="#" className="p-2 text-slate-400 hover:text-primary-600 hover:bg-primary-50 rounded-full transition-all transform hover:-translate-y-1 hover:scale-110"><Twitter className="w-5 h-5" /></a>
-              <a href="#" className="p-2 text-slate-400 hover:text-primary-600 hover:bg-primary-50 rounded-full transition-all transform hover:-translate-y-1 hover:scale-110"><Instagram className="w-5 h-5" /></a>
-              <a href="#" className="p-2 text-slate-400 hover:text-primary-600 hover:bg-primary-50 rounded-full transition-all transform hover:-translate-y-1 hover:scale-110"><Linkedin className="w-5 h-5" /></a>
+            <div className="flex space-x-3">
+              {[Facebook, Twitter, Instagram, Linkedin].map((Icon, idx) => (
+                <a key={idx} href="#" className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-primary-600 hover:text-white transition-all transform hover:-translate-y-1">
+                  <Icon className="w-5 h-5" />
+                </a>
+              ))}
             </div>
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h3 className="text-slate-900 font-bold text-lg mb-4">{FOOTER.quickLinks}</h3>
-            <ul className="space-y-3">
+          <div className="lg:col-span-2">
+            <h3 className="text-white font-black text-sm uppercase tracking-[0.2em] mb-8">{FOOTER.quickLinks}</h3>
+            <ul className="space-y-4">
               {NAV_ITEMS.map((item) => (
                 <li key={item.label}>
-                  <NavLink 
-                    to={item.path} 
-                    className="text-sm hover:text-primary-600 hover:translate-x-1 transition-all inline-block"
-                  >
+                  <NavLink to={item.path} className="text-slate-400 hover:text-white transition-colors flex items-center gap-2 group">
                     {item.label}
+                    <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                   </NavLink>
                 </li>
               ))}
@@ -63,46 +60,46 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Products */}
-          <div>
-            <h3 className="text-slate-900 font-bold text-lg mb-4">{FOOTER.products}</h3>
-            <ul className="space-y-3 text-sm">
+          <div className="lg:col-span-2">
+            <h3 className="text-white font-black text-sm uppercase tracking-[0.2em] mb-8">{FOOTER.products}</h3>
+            <ul className="space-y-4">
               {PRODUCTS_LIST.map((product) => (
-                  <li key={product.id}>
-                    <NavLink to="/products" className="hover:text-primary-600 hover:translate-x-1 transition-all inline-block cursor-pointer">
-                      {product.title}
-                    </NavLink>
-                  </li>
+                <li key={product.id}>
+                  <NavLink to="/products" className="text-slate-400 hover:text-white transition-colors">
+                    {product.title}
+                  </NavLink>
+                </li>
               ))}
             </ul>
           </div>
 
           {/* Contact */}
-          <div>
-            <h3 className="text-slate-900 font-bold text-lg mb-4">{FOOTER.contact}</h3>
-            <ul className="space-y-4 text-sm">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
-                <span className="text-slate-500">{ADDRESS}</span>
+          <div className="lg:col-span-3">
+            <h3 className="text-white font-black text-sm uppercase tracking-[0.2em] mb-8">{FOOTER.contact}</h3>
+            <ul className="space-y-6">
+              <li className="flex gap-4">
+                <MapPin className="w-6 h-6 text-primary-500 shrink-0" />
+                <span className="text-sm leading-relaxed">{ADDRESS}</span>
               </li>
-              <li className="flex items-center gap-3 group">
-                <Mail className="w-5 h-5 text-primary-500 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                <a href={`mailto:${EMAIL}`} className="hover:text-primary-600 transition-colors">{EMAIL}</a>
+              <li className="flex items-center gap-4">
+                <Mail className="w-6 h-6 text-primary-500 shrink-0" />
+                <a href={`mailto:${EMAIL}`} className="hover:text-white transition-colors">{EMAIL}</a>
               </li>
-              <li className="flex items-center gap-3 group">
-                <Phone className="w-5 h-5 text-primary-500 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                <a href={`tel:${PHONE_1}`} className="hover:text-primary-600 transition-colors">{PHONE_1}</a>
+              <li className="flex items-center gap-4">
+                <Phone className="w-6 h-6 text-primary-500 shrink-0" />
+                <a href={`tel:${PHONE_1}`} className="hover:text-white transition-colors">{PHONE_1}</a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-slate-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-slate-400">
-            &copy; {new Date().getFullYear()} {COMPANY_NAME}. {FOOTER.rights}
+        <div className="border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
+          <p className="text-sm font-medium">
+            &copy; {new Date().getFullYear()} {COMPANY_NAME}
           </p>
-          <div className="flex space-x-6 text-sm text-slate-400">
-            <NavLink to="/information" className="hover:text-primary-600 transition-colors">Privacy Policy</NavLink>
-            <NavLink to="/information" className="hover:text-primary-600 transition-colors">Terms of Service</NavLink>
+          <div className="flex gap-8 text-xs font-bold uppercase tracking-widest">
+            <NavLink to="/information" className="hover:text-primary-500 transition-colors">Privacy</NavLink>
+            <NavLink to="/information" className="hover:text-primary-500 transition-colors">Terms</NavLink>
           </div>
         </div>
       </div>

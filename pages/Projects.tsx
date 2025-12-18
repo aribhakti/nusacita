@@ -28,13 +28,13 @@ const ConsumerInfo: React.FC = () => {
   const titleAccent = titleParts.slice(1).join(' ');
 
   return (
-    <div className="pt-40 pb-24 min-h-screen bg-slate-50">
+    <div className="pt-48 pb-24 min-h-screen bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <Reveal>
           <div className="text-center max-w-4xl mx-auto mb-40">
             <span className="text-primary-600 font-black tracking-widest uppercase text-xs mb-5 block">Partner Resources</span>
-            <h1 className="text-6xl md:text-8xl font-black text-slate-900 mb-10 tracking-tighter leading-tight">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-slate-900 mb-10 tracking-tighter leading-tight">
               {titleMain} <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-primary-400">{titleAccent}</span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-500 font-light leading-relaxed max-w-2xl mx-auto">

@@ -210,7 +210,7 @@ export const CONTENT = {
         subtitle: 'Integrated Billing System',
         description: 'Facilitates Partners in managing bills for their customers without having to build a complicated system.',
         icon: FileText,
-        image: 'https://images.unsplash.com/photo-1554224155-11ee2126174d?auto=format&fit=crop&q=80&w=1200',
+        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200',
         features: [
           'Digital-based Invoice Creation',
           'Bill Broadcast via e-mail & WhatsApp',
@@ -273,7 +273,7 @@ export const CONTENT = {
       foundationText2: "Kami menggabungkan pengalaman pelopor industri dengan kelincahan teknologi modern. Filosofi kami sederhana namun kuat:",
       quote: "Membuat pembayaran mudah dan terintegrasi melalui kerja sama.",
       visionTitle: "Visi Kami",
-      visionText: "Menjadi mitra utama bagi pelaku bisnis dan masyarakat dengan menyediakan layanan pemrosesan transaksi pembayaran yang efisien, aman, dan handal.",
+      visionText: "Menjadi mitra utama bagi pelaku bisnis dan masyarakat dengan menyediakan layanan pemrosesan transaksi pembayaran yang efisien, aman, andal.",
       missionTitle: "Misi Kami",
       missionText: "Mengutamakan profesionalisme, inovasi berkelanjutan, dan sumber daya manusia yang kompeten sebagai kunci untuk memberikan solusi layanan terbaik.",
       valuesTitle: "Nilai Inti"
@@ -425,7 +425,7 @@ export const CONTENT = {
         subtitle: 'Sistem Penagihan Terintegrasi',
         description: 'Memudahkan Mitra dalam mengelola tagihan untuk pelanggannya tanpa harus membangun sistem yang rumit.',
         icon: FileText,
-        image: 'https://images.unsplash.com/photo-1554224155-11ee2126174d?auto=format&fit=crop&q=80&w=1200',
+        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200',
         features: [
           'Pembuatan Invoice berbasis digital',
           'Broadcast Tagihan via e-mail & WhatsApp',
