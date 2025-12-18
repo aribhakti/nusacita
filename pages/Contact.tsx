@@ -24,103 +24,117 @@ const Contact: React.FC = () => {
     }, 1500);
   };
 
+  // Logic to split the title for black and red combination
+  const titleParts = CONTACT.title.split(' ');
+  const titleMain = titleParts[0];
+  const titleAccent = titleParts.slice(1).join(' ');
+
   return (
-    <div className="pt-24 pb-16 min-h-screen bg-slate-50">
+    <div className="pt-40 pb-32 min-h-screen bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <Reveal direction="up">
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">{CONTACT.title}</h1>
-          </Reveal>
-          <Reveal direction="up" delay={200}>
-            <p className="text-xl text-slate-600">
+        <Reveal>
+          <div className="text-center max-w-4xl mx-auto mb-40">
+            <span className="text-primary-600 font-black tracking-widest uppercase text-xs mb-5 block">Support Center</span>
+            <h1 className="text-6xl md:text-8xl font-black text-slate-900 mb-10 tracking-tighter leading-tight">
+              {titleMain} <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-primary-400">{titleAccent}</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-slate-500 font-light leading-relaxed max-w-2xl mx-auto">
               {CONTACT.subtitle}
             </p>
-          </Reveal>
-        </div>
+          </div>
+        </Reveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 lg:gap-24">
           
           {/* Contact Info Cards */}
-          <div className="lg:col-span-1 space-y-6">
+          <div className="lg:col-span-1 space-y-8">
             <Reveal direction="left" delay={300}>
-              <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 card-lift">
-                <div className="w-12 h-12 bg-primary-50 rounded-lg flex items-center justify-center text-primary-600 mb-4 transition-transform group-hover:rotate-6">
-                  <MapPin className="w-6 h-6" />
+              <div className="bg-slate-50 p-10 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:shadow-2xl transition-all group">
+                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-primary-600 mb-8 shadow-sm group-hover:bg-primary-600 group-hover:text-white transition-all">
+                  <MapPin className="w-8 h-8" />
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">{CONTACT.addressTitle}</h3>
-                <p className="text-slate-600 leading-relaxed text-sm">{ADDRESS}</p>
+                <h3 className="text-2xl font-black text-slate-900 mb-4 tracking-tight">{CONTACT.addressTitle}</h3>
+                <p className="text-slate-500 leading-relaxed font-light text-lg">{ADDRESS}</p>
               </div>
             </Reveal>
 
             <Reveal direction="left" delay={400}>
-              <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 card-lift">
-                <div className="w-12 h-12 bg-primary-50 rounded-lg flex items-center justify-center text-primary-600 mb-4">
-                  <Phone className="w-6 h-6" />
+              <div className="bg-slate-50 p-10 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:shadow-2xl transition-all group">
+                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-primary-600 mb-8 shadow-sm group-hover:bg-primary-600 group-hover:text-white transition-all">
+                  <Phone className="w-8 h-8" />
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">{CONTACT.callTitle}</h3>
-                <p className="text-slate-600 mb-1 flex flex-col gap-1 font-medium">
+                <h3 className="text-2xl font-black text-slate-900 mb-4 tracking-tight">{CONTACT.callTitle}</h3>
+                <div className="flex flex-col gap-2 font-bold text-slate-700 text-xl">
                   <a href={`tel:${PHONE_1}`} className="hover:text-primary-600 transition-colors">{PHONE_1}</a>
                   <a href={`tel:${PHONE_2}`} className="hover:text-primary-600 transition-colors">{PHONE_2}</a>
-                </p>
+                </div>
               </div>
             </Reveal>
 
             <Reveal direction="left" delay={500}>
-              <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 card-lift">
-                <div className="w-12 h-12 bg-primary-50 rounded-lg flex items-center justify-center text-primary-600 mb-4">
-                  <Clock className="w-6 h-6" />
+              <div className="bg-slate-50 p-10 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:shadow-2xl transition-all group">
+                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-primary-600 mb-8 shadow-sm group-hover:bg-primary-600 group-hover:text-white transition-all">
+                  <Clock className="w-8 h-8" />
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">{CONTACT.hoursTitle}</h3>
-                <p className="text-slate-600 text-sm">{OFFICE_HOURS}</p>
+                <h3 className="text-2xl font-black text-slate-900 mb-4 tracking-tight">{CONTACT.hoursTitle}</h3>
+                <p className="text-slate-500 font-light text-lg">{OFFICE_HOURS}</p>
               </div>
             </Reveal>
           </div>
 
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <Reveal direction="right" delay={300}>
-              <div className="bg-white p-8 md:p-10 rounded-2xl shadow-lg border border-slate-100 h-full">
-                <h3 className="text-2xl font-bold text-slate-900 mb-6">{CONTACT.formTitle}</h3>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-2">{CONTACT.labels.name}</label>
+            <Reveal direction="up" delay={300}>
+              <div className="bg-slate-50 p-8 md:p-16 rounded-[4rem] border border-slate-100 h-full relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-primary-500/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
+                
+                <h3 className="text-3xl font-black text-slate-900 mb-12 tracking-tight flex items-center gap-4">
+                   <div className="w-12 h-12 bg-primary-600 text-white rounded-2xl flex items-center justify-center shadow-lg">
+                      <Send className="w-6 h-6" />
+                   </div>
+                   {CONTACT.formTitle}
+                </h3>
+
+                <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="space-y-3">
+                      <label htmlFor="name" className="text-sm font-black text-slate-400 uppercase tracking-widest ml-1">{CONTACT.labels.name}</label>
                       <input 
                         type="text" 
                         id="name" 
                         required
-                        className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-4 focus:ring-primary-500/15 focus:border-primary-500 outline-none transition-all bg-slate-50 focus:bg-white input-glow"
-                        placeholder="Your Name"
+                        className="w-full px-6 py-4 rounded-2xl border border-slate-200 bg-white focus:ring-4 focus:ring-primary-500/10 focus:border-primary-500 outline-none transition-all text-lg"
+                        placeholder="John Doe"
                       />
                     </div>
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">{CONTACT.labels.email}</label>
+                    <div className="space-y-3">
+                      <label htmlFor="email" className="text-sm font-black text-slate-400 uppercase tracking-widest ml-1">{CONTACT.labels.email}</label>
                       <input 
                         type="email" 
                         id="email" 
                         required
-                        className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-4 focus:ring-primary-500/15 focus:border-primary-500 outline-none transition-all bg-slate-50 focus:bg-white input-glow"
-                        placeholder="email@company.com"
+                        className="w-full px-6 py-4 rounded-2xl border border-slate-200 bg-white focus:ring-4 focus:ring-primary-500/10 focus:border-primary-500 outline-none transition-all text-lg"
+                        placeholder="john@company.com"
                       />
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-slate-700 mb-2">{CONTACT.labels.phone}</label>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="space-y-3">
+                      <label htmlFor="phone" className="text-sm font-black text-slate-400 uppercase tracking-widest ml-1">{CONTACT.labels.phone}</label>
                       <input 
                         type="tel" 
                         id="phone" 
-                        className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-4 focus:ring-primary-500/15 focus:border-primary-500 outline-none transition-all bg-slate-50 focus:bg-white input-glow"
-                        placeholder="0812..."
+                        className="w-full px-6 py-4 rounded-2xl border border-slate-200 bg-white focus:ring-4 focus:ring-primary-500/10 focus:border-primary-500 outline-none transition-all text-lg"
+                        placeholder="+62..."
                       />
                     </div>
-                    <div>
-                      <label htmlFor="subject" className="block text-sm font-medium text-slate-700 mb-2">{CONTACT.labels.subject}</label>
+                    <div className="space-y-3">
+                      <label htmlFor="subject" className="text-sm font-black text-slate-400 uppercase tracking-widest ml-1">{CONTACT.labels.subject}</label>
                       <select 
                         id="subject" 
-                        className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-4 focus:ring-primary-500/15 focus:border-primary-500 outline-none transition-all bg-slate-50 focus:bg-white input-glow"
+                        className="w-full px-6 py-4 rounded-2xl border border-slate-200 bg-white focus:ring-4 focus:ring-primary-500/10 focus:border-primary-500 outline-none transition-all text-lg appearance-none cursor-pointer"
                       >
                         {CONTACT.subjects.map(subject => (
                           <option key={subject}>{subject}</option>
@@ -129,24 +143,24 @@ const Contact: React.FC = () => {
                     </div>
                   </div>
 
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-2">{CONTACT.labels.message}</label>
+                  <div className="space-y-3">
+                    <label htmlFor="message" className="text-sm font-black text-slate-400 uppercase tracking-widest ml-1">{CONTACT.labels.message}</label>
                     <textarea 
                       id="message" 
-                      rows={5}
+                      rows={6}
                       required
-                      className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-4 focus:ring-primary-500/15 focus:border-primary-500 outline-none transition-all bg-slate-50 focus:bg-white resize-none input-glow"
-                      placeholder="Tell us about your needs..."
+                      className="w-full px-6 py-4 rounded-3xl border border-slate-200 bg-white focus:ring-4 focus:ring-primary-500/10 focus:border-primary-500 outline-none transition-all text-lg resize-none"
+                      placeholder="How can we help you?"
                     ></textarea>
                   </div>
 
                   <button 
                     type="submit" 
                     disabled={formStatus === 'submitting' || formStatus === 'success'}
-                    className={`w-full py-4 rounded-lg font-bold text-white transition-all flex items-center justify-center gap-2 transform active:scale-95 duration-200 ${
+                    className={`w-full py-6 rounded-2xl font-black text-xl text-white transition-all flex items-center justify-center gap-4 transform active:scale-95 shadow-2xl ${
                       formStatus === 'success' 
-                        ? 'bg-green-600 hover:bg-green-700' 
-                        : 'bg-primary-600 hover:bg-primary-700 shadow-lg hover:shadow-primary-600/30 hover:-translate-y-1'
+                        ? 'bg-green-600 shadow-green-600/20' 
+                        : 'bg-primary-600 hover:bg-primary-700 shadow-primary-600/30'
                     }`}
                   >
                     {formStatus === 'submitting' ? (
@@ -154,7 +168,7 @@ const Contact: React.FC = () => {
                     ) : formStatus === 'success' ? (
                       CONTACT.labels.sent
                     ) : (
-                      <>{CONTACT.labels.send} <Send className="w-5 h-5" /></>
+                      <>{CONTACT.labels.send} <Send className="w-6 h-6" /></>
                     )}
                   </button>
                 </form>
